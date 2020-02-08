@@ -4,31 +4,6 @@
 #
 # The tests will guide your construction.
 #
-# PORTION_1 = {
-#   label: "Kingdom",
-#   sub_category: {
-#     label: "Phylum",
-#     sub_category: {
-#       label: "Class"
-#     }
-#   }
-# }
-# 
-# PORTION_2 = {
-#   label: "Order"
-# }
-# 
-# PORTION_3 = {
-#   label: "Family",
-#   sub_category: {
-#     label: "Genus",
-#   }
-# }
-# 
-# PORTION_4 = {
-#   label: "Species",
-#   sub_category: nil
-# }
 
 def naming_system
   # Remember:
@@ -41,5 +16,37 @@ def naming_system
   #  Species
   # So, if we have the "Kingdom" node we should be able to "tunnel" into the
   # HoH all the way to Species!
+  
+ PORTION_1 = {
+   label: "Kingdom",
+   sub_category: {
+     label: "Phylum",
+     sub_category: {
+       label: "Class",
+       PORTION_2
+     }
+   }
+ }
+ 
+ PORTION_2 = {
+   label: "Order",
+   PORTION_3
+ }
+ 
+ PORTION_3 = {
+   label: "Family",
+   sub_category: {
+     label: "Genus",
+     PORTION_4
+   }
+ }
 
+  PORTION_4 = {
+    label: "Species",
+    sub_category: nil
+    }
+  #puts "here"
+  return PORTION_1
 end
+
+puts naming_system
